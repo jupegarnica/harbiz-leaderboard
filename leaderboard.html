@@ -25,6 +25,10 @@
 </template>
 
 <template name="leaderboard">
+  <form id="controls">
+    <input type="checkbox" name="split" id="split" >
+    <label for="split">Split players by type</label>
+  </form>
   <section class="leaderboards">
     {{> playerList players=players.scientist}}
     {{> playerList players=players.actor}}

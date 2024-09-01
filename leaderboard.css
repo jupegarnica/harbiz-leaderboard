@@ -217,3 +217,11 @@ body {
     background-color: #fefff4;
   }
 }
+
+#controls {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+  background-color: #fafafa;
+  padding: 1em 0;
+}
