@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from "meteor/templating";
 import { Session } from "meteor/session";
 import { addPlayer, countPlayers, getAvailablePlayers, getPlayerById, updatePlayerScore } from './services/db.service';
+import { groupBy } from './services/utils.service';
 
 const POINTS_TO_ADD = {
   scientist: 10,
@@ -10,13 +11,8 @@ const POINTS_TO_ADD = {
 };
 
 
-function groupBy(array, key) {
-  return array.reduce((result, currentValue) => {
-    (result[currentValue[key]] = result[currentValue[key]] || []).push(currentValue);
-    return result;
-  }
-    , {});
-}
+
+
 
 if (Meteor.isClient) {
   Template.leaderboard.helpers({
