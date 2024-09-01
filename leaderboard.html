@@ -9,9 +9,9 @@
 
 <body>
   <div class="outer">
-    {{> header}}
+    {{> header }}
 
-    {{> leaderboard}}
+    {{> leaderboard players=players selectedName=selectedName pointsToAdd=pointsToAdd}}
   </div>
 </body>
 
@@ -33,13 +33,21 @@
 <template name="leaderboard">
   <ol class="leaderboard">
     {{#each players}}
-    {{> player}}
+    {{> player  }}
     {{/each}}
   </ol>
 
-  {{#if selectedName}}
+  {{#if selectedPlayer}}
   <div class="details">
-    <div class="name">{{selectedName}}</div>
+    <div class="name">
+      <span class="">
+      {{selectedPlayer.name}}
+      </span>
+      <span class="type">
+      {{selectedPlayer.type}}
+      </span>
+      </div>
+
     <button class="inc">Add {{pointsToAdd}} points</button>
   </div>
   {{else}}

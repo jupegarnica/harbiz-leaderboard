@@ -17,12 +17,12 @@ if (Meteor.isClient) {
       const foundPlayers = Players.find({}, { sort: { score: -1, name: 1 } });
       return foundPlayers;
     },
-    selectedName: function () {
+    selectedPlayer: function () {
 
       const player = Players.findOne(Session.get("selectedPlayer"));
       if (player) {
         Session.set("pointsToAdd", POINTS_TO_ADD[player.type]);
-        return player.name;
+        return player;
       }
       throw new Error("Player not found");
 
