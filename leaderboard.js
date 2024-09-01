@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from "meteor/templating";
-import { Mongo } from "meteor/mongo";
 import { Session } from "meteor/session";
+import { addPlayer, countPlayers, getAvailablePlayers, getPlayerById, updatePlayerScore } from './services/db.service';
 
 const POINTS_TO_ADD = {
   scientist: 10,
@@ -9,7 +9,6 @@ const POINTS_TO_ADD = {
   athlete: 5
 };
 
-const Players = new Mongo.Collection("players");
 
 function groupBy(array, key) {
   return array.reduce((result, currentValue) => {
@@ -22,7 +21,7 @@ function groupBy(array, key) {
 if (Meteor.isClient) {
   Template.leaderboard.helpers({
     players: function () {
-      const foundPlayers = Players.find({}, { sort: { score: -1, name: 1 } });
+      const foundPlayers = getAvailablePlayers();
       const groupByType = groupBy(foundPlayers.fetch(), "type");
       console.log(groupByType);
 
@@ -30,7 +29,7 @@ if (Meteor.isClient) {
     },
     selectedPlayer: function () {
 
-      const player = Players.findOne(Session.get("selectedPlayer"));
+      const player = getPlayerById(Session.get("selectedPlayer"));
       if (player) {
         Session.set("pointsToAdd", POINTS_TO_ADD[player.type]);
         return player;
@@ -47,7 +46,8 @@ if (Meteor.isClient) {
   Template.leaderboard.events({
     'click .inc': function () {
       const pointsToAdd = Session.get("pointsToAdd");
-      Players.update(Session.get("selectedPlayer"), { $inc: { score: pointsToAdd } });
+      const selectedPlayer = Session.get("selectedPlayer");
+      updatePlayerScore(selectedPlayer, pointsToAdd);
     }
   });
 
@@ -68,8 +68,8 @@ if (Meteor.isClient) {
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    Players.remove({});
-    if (Players.find().count() === 0) {
+    // Players.remove({});
+    if (countPlayers() === 0) {
       const defaultPlayers = [
         { name: "Ada Lovelace", score: 50, type: "scientist" },
         { name: "Grace Hopper", score: 40, type: "scientist" },
@@ -113,7 +113,7 @@ if (Meteor.isServer) {
         { name: "Floyd Mayweather", score: 0, type: "athlete"}
       ];
 
-      defaultPlayers.forEach(player => Players.insert(player));
+      defaultPlayers.forEach(player => addPlayer(player));
     }
   });
 }
