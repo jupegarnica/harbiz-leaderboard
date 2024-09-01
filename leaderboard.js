@@ -10,6 +10,7 @@ if (Meteor.isClient) {
     players: function () {
       const foundPlayers = getAvailablePlayers();
       const groupByType = groupBy(foundPlayers, "type");
+      groupByType.all = foundPlayers;
       return groupByType;
     },
     selectedPlayer: function () {
@@ -25,6 +26,9 @@ if (Meteor.isClient) {
     },
     pointsToAdd() {
       return Session.get("pointsToAdd");
+    },
+    splitByType() {
+      return Session.get("splitByType");
     }
   });
 
@@ -33,6 +37,10 @@ if (Meteor.isClient) {
       const pointsToAdd = Session.get("pointsToAdd");
       const selectedPlayer = Session.get("selectedPlayer");
       updatePlayerScore(selectedPlayer, pointsToAdd);
+    },
+    'input #split': function (event) {
+
+      Session.set("splitByType", event.target.checked);
     }
   });
 

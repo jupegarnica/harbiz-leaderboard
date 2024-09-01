@@ -30,9 +30,13 @@
     <label for="split">Split players by type</label>
   </form>
   <section class="leaderboards">
+    {{#if splitByType}}
     {{> playerList players=players.scientist}}
     {{> playerList players=players.actor}}
     {{> playerList players=players.athlete}}
+    {{else}}
+    {{> playerList players=players.all}}
+    {{/if}}
   </section>
 
   <div class="details-wrapper">
