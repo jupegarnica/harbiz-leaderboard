@@ -1,0 +1,79 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "meteor/session": [
+        "/home/juan/.meteor/packages/session/1.2.0/web.browser/session.js"
+      ],
+      "meteor/mongo": [
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/local_collection_driver.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/collection.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/connection_options.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/doc_fetcher.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/mongo_driver.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/observe_multiplex.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/oplog_observe_driver.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/oplog_tailing.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/polling_observe_driver.js",
+        "/home/juan/.meteor/packages/mongo/1.12.0/web.browser/remote_collection_driver.js"
+      ],
+      "meteor/random": [
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/main_client.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/AbstractRandomGenerator.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/AleaRandomGenerator.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/BrowserRandomGenerator.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/NodeRandomGenerator.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/createAleaGenerator.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/createRandom.js",
+        "/home/juan/.meteor/packages/random/1.2.0/web.browser/main_server.js"
+      ],
+      "meteor/shell-server": [
+        "/home/juan/.meteor/packages/shell-server/0.5.0/web.browser/main.js",
+        "/home/juan/.meteor/packages/shell-server/0.5.0/web.browser/shell-server.js"
+      ],
+      "meteor/dynamic-import": [
+        "/home/juan/.meteor/packages/dynamic-import/0.7.1/web.browser/client.js",
+        "/home/juan/.meteor/packages/dynamic-import/0.7.1/web.browser/cache.js",
+        "/home/juan/.meteor/packages/dynamic-import/0.7.1/web.browser/common.js",
+        "/home/juan/.meteor/packages/dynamic-import/0.7.1/web.browser/dynamic-versions.js",
+        "/home/juan/.meteor/packages/dynamic-import/0.7.1/web.browser/security.js",
+        "/home/juan/.meteor/packages/dynamic-import/0.7.1/web.browser/server.js"
+      ],
+      "meteor/jquery": [
+        "/home/juan/.meteor/packages/jquery/3.0.0/web.browser/main.js"
+      ],
+      "meteor/ecmascript": [
+        "/home/juan/.meteor/packages/ecmascript/0.15.2/web.browser/ecmascript.js"
+      ],
+      "meteor/blaze": [
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/preamble.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/dombackend.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/domrange.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/events.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/attrs.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/materializer.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/exceptions.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/view.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/builtins.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/lookup.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/template.js",
+        "/home/juan/.meteor/packages/blaze/2.5.0/web.browser/backcompat.js"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "meteor"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
+}
