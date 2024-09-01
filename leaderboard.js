@@ -14,9 +14,11 @@ const Players = new Mongo.Collection("players");
 if (Meteor.isClient) {
   Template.leaderboard.helpers({
     players: function () {
-      return Players.find({}, { sort: { score: -1, name: 1 } });
+      const foundPlayers = Players.find({}, { sort: { score: -1, name: 1 } });
+      return foundPlayers;
     },
     selectedName: function () {
+
       const player = Players.findOne(Session.get("selectedPlayer"));
       if (player) {
         Session.set("pointsToAdd", POINTS_TO_ADD[player.type]);
