@@ -11,5 +11,10 @@
     "@babel/runtime": "^7.14.6",
     "jquery": "^3.6.0",
     "meteor-node-stubs": "^1.0.3"
+  },
+  "scripts": {
+    "start": "meteor run",
+    "postinstall": "meteor npm install",
+    "build": "meteor build ./output"
   }
 }
