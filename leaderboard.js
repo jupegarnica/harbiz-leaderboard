@@ -2,12 +2,18 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from "meteor/templating";
 import { Mongo } from "meteor/mongo";
 import { Session } from "meteor/session";
-import { Random } from "meteor/random";
+// import { Random } from "meteor/random";
 
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".
 
 const Players = new Mongo.Collection("players");
+const POINTS_TO_ADD = {
+  scientist: 10,
+  actor: 15,
+  athlete: 5
+};
+
 
 if (Meteor.isClient) {
   Template.leaderboard.helpers({
@@ -16,7 +22,14 @@ if (Meteor.isClient) {
     },
     selectedName: function () {
       const player = Players.findOne(Session.get("selectedPlayer"));
-      return player && player.name;
+      if (player) {
+        Session.set("pointsToAdd", POINTS_TO_ADD[player.type]);
+        return player.name;
+      }
+
+    },
+    pointsToAdd() {
+      return Session.get("pointsToAdd");
     }
   });
 
@@ -29,7 +42,8 @@ if (Meteor.isClient) {
   Template.player.helpers({
     selected: function () {
       return Session.equals("selectedPlayer", this._id) ? "selected" : '';
-    }
+    },
+
   });
 
   Template.player.events({
