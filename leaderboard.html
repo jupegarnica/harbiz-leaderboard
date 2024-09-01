@@ -25,18 +25,8 @@
 </template>
 
 <template name="leaderboard">
-  <label for="split">
-      Split by type
-      <input type="checkbox"
-        name="split"
-        class="split"
-        >
-    </label>
-  <ol class="leaderboard">
-    {{#each players}}
-    {{> player  }}
-    {{/each}}
-  </ol>
+  {{> playerList players=players}}
+
 
   {{#if selectedPlayer}}
   <div class="details">
@@ -54,6 +44,15 @@
   {{else}}
   <div class="message">Click a player to select</div>
   {{/if}}
+</template>
+
+
+<template name="playerList">
+  <ol class="player-list">
+    {{#each players}}
+    {{> player  }}
+    {{/each}}
+  </ol>
 </template>
 
 <template name="player">
