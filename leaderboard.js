@@ -2,18 +2,14 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from "meteor/templating";
 import { Mongo } from "meteor/mongo";
 import { Session } from "meteor/session";
-// import { Random } from "meteor/random";
 
-// Set up a collection to contain player information. On the server,
-// it is backed by a MongoDB collection named "players".
-
-const Players = new Mongo.Collection("players");
 const POINTS_TO_ADD = {
   scientist: 10,
   actor: 15,
   athlete: 5
 };
 
+const Players = new Mongo.Collection("players");
 
 if (Meteor.isClient) {
   Template.leaderboard.helpers({
