@@ -26,6 +26,8 @@ if (Meteor.isClient) {
         Session.set("pointsToAdd", POINTS_TO_ADD[player.type]);
         return player.name;
       }
+      throw new Error("Player not found");
+
 
     },
     pointsToAdd() {
