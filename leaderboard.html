@@ -25,25 +25,31 @@
 </template>
 
 <template name="leaderboard">
-  {{> playerList players=players}}
+  <section class="leaderboards">
+    {{> playerList players=players.scientist}}
+    {{> playerList players=players.actor}}
+    {{> playerList players=players.athlete}}
+  </section>
 
+  <div class="details-wrapper">
+    {{#if selectedPlayer}}
 
-  {{#if selectedPlayer}}
-  <div class="details">
-    <div class="name">
-      <span class="">
-      {{selectedPlayer.name}}
-      </span>
-      <span class="type">
-      {{selectedPlayer.type}}
-      </span>
-      </div>
+    <div class="details">
+      <div class="name">
+        <span class="">
+        {{selectedPlayer.name}}
+        </span>
+        <span class="type">
+        {{selectedPlayer.type}}
+        </span>
+        </div>
 
-    <button class="inc">Add {{pointsToAdd}} points</button>
-  </div>
-  {{else}}
-  <div class="message">Click a player to select</div>
-  {{/if}}
+      <button class="inc">Add {{pointsToAdd}} points</button>
+    </div>
+    {{else}}
+    <div class="message">Click a player to select</div>
+    {{/if}}
+   </div>
 </template>
 
 
