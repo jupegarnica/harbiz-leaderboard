@@ -1,10 +1,11 @@
 import { Mongo } from "meteor/mongo";
 
 const Players = new Mongo.Collection("players");
+// Players.remove({});
 
 
 export function getAvailablePlayers() {
-    return Players.find({}, { sort: { score: -1, name: 1 } });
+    return Players.find({}, { sort: { score: -1, name: 1 } }).fetch();
 }
 
 

@@ -18,9 +18,7 @@ if (Meteor.isClient) {
   Template.leaderboard.helpers({
     players: function () {
       const foundPlayers = getAvailablePlayers();
-      const groupByType = groupBy(foundPlayers.fetch(), "type");
-      console.log(groupByType);
-
+      const groupByType = groupBy(foundPlayers, "type");
       return groupByType;
     },
     selectedPlayer: function () {
@@ -64,7 +62,6 @@ if (Meteor.isClient) {
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // Players.remove({});
     if (countPlayers() === 0) {
       const defaultPlayers = [
         { name: "Ada Lovelace", score: 50, type: "scientist" },
