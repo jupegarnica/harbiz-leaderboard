@@ -1,32 +1,49 @@
 <head>
   <title>Leaderboard</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600'
+    rel='stylesheet'
+    type='text/css'>
 </head>
 
 <body>
   <div class="outer">
-    <div class="logo"></div>
-    <h1 class="title">Leaderboard</h1>
-    <div class="subtitle">Select a scientist to give them points</div>
+    {{> header}}
+
     {{> leaderboard}}
   </div>
 </body>
 
+<template name="header">
+  <header>
+    <div class="logo"></div>
+    <h1 class="title">Leaderboard</h1>
+    <div class="subtitle">Select a scientist to give them points</div>
+    <label for="split">
+      Split by type
+      <input type="checkbox"
+        name="split"
+        class="split"
+        >
+    </label>
+  </header>
+</template>
+
 <template name="leaderboard">
   <ol class="leaderboard">
     {{#each players}}
-      {{> player}}
+    {{> player}}
     {{/each}}
   </ol>
 
   {{#if selectedName}}
-    <div class="details">
-      <div class="name">{{selectedName}}</div>
-      <button class="inc">Add {{pointsToAdd}} points</button>
-    </div>
+  <div class="details">
+    <div class="name">{{selectedName}}</div>
+    <button class="inc">Add {{pointsToAdd}} points</button>
+  </div>
   {{else}}
-    <div class="message">Click a player to select</div>
+  <div class="message">Click a player to select</div>
   {{/if}}
 </template>
 
