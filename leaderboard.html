@@ -20,17 +20,18 @@
     <div class="logo"></div>
     <h1 class="title">Leaderboard</h1>
     <div class="subtitle">Select a scientist to give them points</div>
-    <label for="split">
+
+  </header>
+</template>
+
+<template name="leaderboard">
+  <label for="split">
       Split by type
       <input type="checkbox"
         name="split"
         class="split"
         >
     </label>
-  </header>
-</template>
-
-<template name="leaderboard">
   <ol class="leaderboard">
     {{#each players}}
     {{> player  }}
