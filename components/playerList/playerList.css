@@ -1,0 +1,7 @@
+.player-list {
+    border-top: 1px solid #f1f1f1;
+    counter-reset: ol-counter;
+    list-style-type: none;
+    margin: 0 0 1.5em;
+    padding: 0;
+  }

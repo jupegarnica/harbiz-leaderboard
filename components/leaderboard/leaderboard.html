@@ -1,29 +1,3 @@
-<head>
-  <title>Leaderboard</title>
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no">
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600'
-    rel='stylesheet'
-    type='text/css'>
-</head>
-
-<body>
-  <div class="outer">
-    {{> header }}
-
-    {{> leaderboard }}
-  </div>
-</body>
-
-<template name="header">
-  <header>
-    <div class="logo"></div>
-    <h1 class="title">Leaderboard</h1>
-    <div class="subtitle">Select a scientist to give them points</div>
-
-  </header>
-</template>
-
 <template name="leaderboard">
   <form id="controls">
     <input type="checkbox" name="split" id="split" >
@@ -58,21 +32,4 @@
     <div class="message">Click a player to select</div>
     {{/if}}
    </div>
-</template>
-
-
-<template name="playerList">
-  <ol class="player-list">
-    {{#each players}}
-    {{> player  }}
-    {{/each}}
-  </ol>
-</template>
-
-<template name="player">
-  <li class="player {{selected}}">
-    <span class="name">{{name}}</span>
-    <span class="type">{{type}}</span>
-    <span class="score">{{score}}</span>
-  </li>
 </template>
