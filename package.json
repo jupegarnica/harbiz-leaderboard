@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "meteor run",
-    "postinstall": "meteor npm install",
+    "_install": "meteor npm install",
     "build": "meteor build ./output"
   }
 }
